@@ -30,7 +30,7 @@ metadata:
 spec:
   # group name to use for REST API: /apis/<group>/<version>
   group: azure.com
-  version: v1alpha1
+  version: v1alpha2
   scope: Namespaced
   names:
     # plural name to be used in the URL: /apis/<group>/<version>/<plural>
@@ -49,7 +49,7 @@ metadata:
 spec:
   # group name to use for REST API: /apis/<group>/<version>
   group: azure.com
-  version: v1alpha1
+  version: v1alpha2
   scope: Namespaced
   names:
     # plural name to be used in the URL: /apis/<group>/<version>/<plural>
@@ -301,6 +301,8 @@ spec:
         release: azure-k8s-metrics-adapter
     spec:
       serviceAccountName: azure-k8s-metrics-adapter
+      imagePullSecrets:
+        - name: registryCredentials
       containers:
         - name: azure-k8s-metrics-adapter
           image: "mcr.microsoft.com/k8s/metrics/adapter:latest"
@@ -379,3 +381,4 @@ spec:
 ---
 # Source: azure-k8s-metrics-adapter/templates/secret.yaml
 
+---
